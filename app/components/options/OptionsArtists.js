@@ -14,7 +14,7 @@ const OptionsArtists = ({ artists, indexOptions, setIndexOptions }) => {
 	const refOption = React.useRef()
 
 	const playSimilarSongs = () => {
-		getApiNetworkFirst(config, 'getSimilarSongs', `id=${artists[indexOptions].id}&count=50`)
+		getApiNetworkFirst(config, 'getSimilarSongs', { id: artists[indexOptions].id, count: 50 })
 			.then((json) => {
 				if (json.similarSongs?.song) {
 					playSong(config, songDispatch, json.similarSongs.song, 0)

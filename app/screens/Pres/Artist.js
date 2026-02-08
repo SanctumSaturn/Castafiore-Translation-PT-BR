@@ -53,7 +53,7 @@ const Artist = ({ navigation, route: { params } }) => {
 		if (!artist.album) return
 		if (!allSongs.current.length) {
 			const songsPending = artist.album.map(async album => {
-				return await getApiNetworkFirst(config, 'getAlbum', `id=${album.id}`)
+				return await getApiNetworkFirst(config, 'getAlbum', { id: album.id })
 					.then((json) => {
 						return json.album.song
 					})

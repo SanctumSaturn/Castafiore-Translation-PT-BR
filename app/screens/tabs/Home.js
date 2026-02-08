@@ -28,7 +28,7 @@ const Home = () => {
 	const [refresh, setRefresh] = React.useState(0)
 
 	const clickRandomSong = () => {
-		getApiNetworkFirst(config, 'getRandomSongs', `size=50`)
+		getApiNetworkFirst(config, 'getRandomSongs', 'size=50')
 			.then((json) => {
 				playSong(config, songDispatch, json.randomSongs.song, 0)
 			})

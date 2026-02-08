@@ -19,7 +19,7 @@ const OptionsAlbums = ({ albums, indexOptions, setIndexOptions }) => {
 	const songDispatch = useSongDispatch()
 
 	const playSimilarSongs = () => {
-		getApiNetworkFirst(config, 'getSimilarSongs', `id=${albums[indexOptions].id}&count=50`)
+		getApiNetworkFirst(config, 'getSimilarSongs', { id: albums[indexOptions].id, count: 50 })
 			.then((json) => {
 				if (json.similarSongs?.song) playSong(config, songDispatch, json.similarSongs.song, 0)
 			})

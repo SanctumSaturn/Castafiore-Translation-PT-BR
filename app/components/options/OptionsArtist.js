@@ -15,7 +15,7 @@ const OptionsArtist = ({ artist, artistInfo = {}, isOption, setIsOption }) => {
 	const refOption = React.useRef()
 
 	const playSimilarSongs = () => {
-		getApiCacheFirst(config, 'getSimilarSongs', `id=${artist.id}&count=50`)
+		getApiCacheFirst(config, 'getSimilarSongs', { id: artist.id, count: 50 })
 			.then((json) => {
 				if (json.similarSongs?.song) {
 					playSong(config, songDispatch, json.similarSongs.song, 0)
